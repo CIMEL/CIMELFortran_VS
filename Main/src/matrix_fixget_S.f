@@ -515,7 +515,7 @@ c	WRITE(250,*)'CXXA,NDP',NDP
 !c ** READ ORIGINAL kernels 
 !c
 !c      OPEN (10,file=TRIM(rootdir)//'name.dat',status='old')
-			OPEN (10,file='PARM\name.dat',status='old')
+			OPEN (10,file='name.dat',status='old')
 			READ(10,*) NRATN
 			IF(NRATN.gt.KR1par) 
      &		STOP ' in GET_MATRIX 1: NRATN.gt.KR1par !!!'

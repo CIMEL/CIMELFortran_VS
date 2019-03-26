@@ -515,7 +515,7 @@ C FS_BOT,FS_TOA: SPECTRAL RADIATIVE FORCING (WM-2) AT SURFACE AND TOA
 C ES_BOT,ES_TOA: SPECTRAL RADIATIVE FORCING EFFICIENCY (WM-2/AOD(0.55 um)) AT SURFACE AND TOA
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	IF (COND.EQ.0) THEN
-		OPEN(800, FILE='PARM\INPUT_BB')
+		OPEN(800, FILE='INPUT_BB')
 		READ(800,*)BROAD,FORC,SPEC
 		READ(800,*)W1,W2
 		READ(800,*)SCL1,NSTR1,NSTR2,NMOM,NSSA
@@ -882,7 +882,7 @@ C	WRITE(*,*)'II=',II
 c
 c ** READ INPUT
 c       
-	    open(10,file='PARM\input.dat',status='old')
+	    open(10,file='input.dat',status='old')
 		read(10,*) key,keyEL,keySUB,keyLS,
      &           key_org,key_fx,key_RD1
 !CZJ          write(*,*)key,keyEL,keySUB,keyLS
@@ -2980,7 +2980,7 @@ C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       SOMFSOL=0.
       FSOL=0
-      OPEN(990,FILE='PARM\SUN100')
+      OPEN(990,FILE='SUN100')
       DO I=1,NBNU
          READ(990,*)II,FSOL(I)
       ENDDO
@@ -3052,7 +3052,7 @@ cs	CLOSE(990)
 
 C~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C
-      OPEN(990,FILE='PARM\SPECTREH2O')
+      OPEN(990,FILE='SPECTREH2O')
       DO I=1,138
          READ(990,*)II
          READ(990,*)(SOI(IT,I,1),IT=1,NBTEMP)
@@ -3060,7 +3060,7 @@ C
          READ(990,*)
       ENDDO
       CLOSE(990)
-      OPEN(990,FILE='PARM\SPECTRECO2')
+      OPEN(990,FILE='SPECTRECO2')
       DO I=1,138
          READ(990,*)II
          READ(990,*)(SOI(IT,I,2),IT=1,NBTEMP)
@@ -5382,7 +5382,7 @@ c     gases1(2,j) = 3.50e+02
 c
 c..atmospheric gases (28): h2o,co2,o3,n2o,co,ch4,o2,.. [ppmv] 
 cs      open (10,file='/home/ilya/CODEILYA_FINAL3/modata.d',status='old')
-      open (10,file='PARM\modata.d',status='old')
+      open (10,file='modata.d',status='old')
       do 150 m=1,4
       jstart = 7*(m-1) +1
       jend   = 7*m
@@ -5411,7 +5411,7 @@ c
 c
 c..atmospheric data: z[km],p[mb],t[k],ro[#/cm3] and h2o,o3,n2o,co,ch4
 cs      open (10,file='/home/ilya/CODEILYA_FINAL3/sadata.d',status='old')
-      open (10,file='PARM\sadata.d',status='old')
+      open (10,file='sadata.d',status='old')
       do 260 m=1,8
       read (10,180) imodel,sun,slt
   180 format (/,9x,i4,39x,f5.1,18x,f5.1)
@@ -5440,7 +5440,7 @@ c
 c
 c..non-standard atmospheric data [profil.d]
 cs      open (10,file='/home/ilya/CODEILYA_FINAL3/profil.d',status='old')
-      open (10,file='PARM\profil.d',status='old')
+      open (10,file='profil.d',status='old')
       read (10,*) nrow,ncol,sun,slt
       if(nrow.gt.0) goto 280
       close (10)
@@ -5552,7 +5552,7 @@ c
 c
 c..override new atmospheric data 
 cs      open (10,file='/home/ilya/CODEILYA_FINAL3/profil.d',status='old')
-      open (10,file='PARM\profil.d',status='old')
+      open (10,file='profil.d',status='old')
       read (10,*) nrow,ncol,sun,slt
       read (10,*) (ntype(j),j=1,ncol)
       ja     = 0
